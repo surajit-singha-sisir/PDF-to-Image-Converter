@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-tghhx8ZlYzX3q3c7jn3QhLeiL7KWtq3i39V7Tq2W8e1KfO1KKklG/qiwkR0s8sI7KpNlBfkCzKOwHflGKvzZcQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    
+
+  </head>
+  <body>
+    {% block content %}
+    {% endblock %}
+  </body>
+  <script src="{% static 'scripts.js' %}"></script>
+</html>

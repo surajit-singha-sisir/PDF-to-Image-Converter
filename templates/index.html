@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+  <form id="pdf-form" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+    <div class="containerApp">
+      <h2>PDF to Image Converter</h2>
+    <div class="input-container">
+      <label for="pdf-file-input">
+        <i class="fas fa-file-pdf"></i>
+        <span id="dragText">Drag your File Here or Browse</span>
+      </label>
+      <input type="file" id="pdf-file-input" accept=".pdf" name="pdf_file" required>
+      <div id="progress-bar" class="progress-bar"></div>
+    </div>
+  
+  <button type="submit">Submit</button>
+</div>
+  </form>
+
+
+  
+    {% if image_paths %}
+    <br><br>
+    <hr><p id="para"><i class="fas fa-download"></i> Download Options</p><hr>
+    <div class="newDiv">
+      
+    <a href="{% url 'download_images' %}"><i class="fas fa-file-archive"></i>
+      Download as <b style="color: #6a9;">Zip</b></a>
+
+    <div class="gallery-container">
+      {% for image_url in image_paths %}
+        <div class="gallery-item">
+          <img src="{{ image_url }}">
+          <a href="{% url 'preview_image' image_url %}" target="_blank"><i class="fas fa-cloud-download-alt"></i></a>
+        </div>
+      {% endfor %}
+    </div>
+    
+    </div>
+    {% endif %}
+  
+    <p class="copyRights"><a href="https://www.facebook.com/SurajitSinghaSisir">&copy; Surajit Singha Sisir</a></p>
+{% endblock %}
